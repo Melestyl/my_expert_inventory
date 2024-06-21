@@ -28,8 +28,7 @@ public class MinuteDAO {
         return updatedMinute;
     }
 
-    public void delete(int id) {
-        Minute minute = findById(id);
+    public void delete(Minute minute) {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.contains(minute) ? minute : entityManager.merge(minute));
         entityManager.getTransaction().commit();

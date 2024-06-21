@@ -14,6 +14,10 @@ public class PieceDAO {
         return entityManager.find(Piece.class, id);
     }
 
+    public Piece findByBienId(int id) {
+        return entityManager.find(Piece.class, id);
+    }
+
     public Piece create(Piece piece) {
         entityManager.getTransaction().begin();
         entityManager.persist(piece);
@@ -28,8 +32,7 @@ public class PieceDAO {
         return updatedPiece;
     }
 
-    public void delete(int id) {
-        Piece piece = findById(id);
+    public void delete(Piece piece) {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.contains(piece) ? piece : entityManager.merge(piece));
         entityManager.getTransaction().commit();

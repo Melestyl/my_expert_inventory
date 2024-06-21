@@ -28,8 +28,7 @@ public class EtatDesLieuxDAO {
         return updatedEtatDesLieux;
     }
 
-    public void delete(int id) {
-        EtatDesLieux etatDesLieux = findById(id);
+    public void delete(EtatDesLieux etatDesLieux) {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.contains(etatDesLieux) ? etatDesLieux : entityManager.merge(etatDesLieux));
         entityManager.getTransaction().commit();

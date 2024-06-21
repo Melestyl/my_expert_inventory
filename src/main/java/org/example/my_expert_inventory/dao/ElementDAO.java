@@ -28,8 +28,7 @@ public class ElementDAO {
         return updatedElement;
     }
 
-    public void delete(Long id) {
-        Element element = findById(id);
+    public void delete(Element element) {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.contains(element) ? element : entityManager.merge(element));
         entityManager.getTransaction().commit();

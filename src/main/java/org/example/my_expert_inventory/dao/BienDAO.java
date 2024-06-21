@@ -28,8 +28,7 @@ public class BienDAO {
         return updatedBien;
     }
 
-    public void delete(int id) {
-        Bien bien = fintById(id);
+    public void delete(Bien bien) {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.contains(bien) ? bien : entityManager.merge(bien));
         entityManager.getTransaction().commit();

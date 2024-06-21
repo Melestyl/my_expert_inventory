@@ -28,8 +28,7 @@ public class TypeDElementDAO {
         return updatedTypeDElement;
     }
 
-    public void delete(int id) {
-        TypeDElement typeDElement = findById(id);
+    public void delete(TypeDElement typeDElement) {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.contains(typeDElement) ? typeDElement : entityManager.merge(typeDElement));
         entityManager.getTransaction().commit();
