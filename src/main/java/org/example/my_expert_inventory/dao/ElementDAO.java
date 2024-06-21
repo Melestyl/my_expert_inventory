@@ -1,7 +1,9 @@
 package org.example.my_expert_inventory.dao;
 
 import org.example.my_expert_inventory.model.Element;
+import org.example.my_expert_inventory.model.Piece;
 import jakarta.persistence.EntityManager;
+import java.util.List;
 
 public class ElementDAO {
     private EntityManager entityManager;
@@ -12,6 +14,12 @@ public class ElementDAO {
 
     public Element findById(Long id) {
         return entityManager.find(Element.class, id);
+    }
+
+    public List<Element> findByPiece(int idPiece) {
+        return entityManager.createQuery("SELECT e FROM Element e WHERE e.idPiece = :idPiece", Element.class)
+                .setParameter("idPiece", idPiece)
+                .getResultList();
     }
 
     public Element create(Element element) {

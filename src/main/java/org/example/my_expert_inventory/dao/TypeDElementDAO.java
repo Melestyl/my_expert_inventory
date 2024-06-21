@@ -1,7 +1,10 @@
 package org.example.my_expert_inventory.dao;
 
+import org.example.my_expert_inventory.model.Element;
 import org.example.my_expert_inventory.model.TypeDElement;
 import jakarta.persistence.EntityManager;
+
+import java.util.List;
 
 public class TypeDElementDAO {
     private EntityManager entityManager;
@@ -12,6 +15,10 @@ public class TypeDElementDAO {
 
     public TypeDElement findById(int id) {
         return entityManager.find(TypeDElement.class, id);
+    }
+
+    public List<Element> findAll() {
+        return entityManager.createQuery("SELECT e FROM Element e", Element.class).getResultList();
     }
 
     public TypeDElement create(TypeDElement typeDElement) {

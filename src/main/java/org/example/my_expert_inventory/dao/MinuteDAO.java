@@ -1,7 +1,14 @@
 package org.example.my_expert_inventory.dao;
 
 import org.example.my_expert_inventory.model.Minute;
+import org.example.my_expert_inventory.model.EtatDesLieux;
+import org.example.my_expert_inventory.model.Element;
+
+import org.example.my_expert_inventory.model.Minute;
+
+
 import jakarta.persistence.EntityManager;
+import java.util.List;
 
 public class MinuteDAO {
     private EntityManager entityManager;
@@ -12,6 +19,18 @@ public class MinuteDAO {
 
     public Minute findById(int id) {
         return entityManager.find(Minute.class, id);
+    }
+
+    public List<Minute> findByEtatDesLieux(int idEtatDesLieux) {
+        return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idEtatDesLieux = :idEtatDesLieux", Minute.class)
+                .setParameter("idEtatDesLieux", idEtatDesLieux)
+                .getResultList();
+    }
+
+    public List<Element> findByElement(int idElement) {
+        return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idElement = :idElement", Element.class)
+                .setParameter("idElement", idElement)
+                .getResultList();
     }
 
     public Minute create(Minute minute) {

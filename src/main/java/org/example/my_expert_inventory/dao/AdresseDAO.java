@@ -14,6 +14,16 @@ public class AdresseDAO {
         return entityManager.find(Adresse.class, id);
     }
 
+    public Adresse findByAdresse(int numeroRue, String rue, int codePostal, String ville, String complementAdresse) {
+        return entityManager.createQuery("SELECT a FROM Adresse a WHERE a.numeroRue = :numeroRue AND a.rue = :rue AND a.codePostal = :codePostal AND a.ville = :ville AND a.complementAdresse = :complementAdresse", Adresse.class)
+                .setParameter("numeroRue", numeroRue)
+                .setParameter("rue", rue)
+                .setParameter("codePostal", codePostal)
+                .setParameter("ville", ville)
+                .setParameter("complementAdresse", complementAdresse)
+                .getSingleResult();
+    }
+
     public Adresse create(Adresse adresse) {
         entityManager.getTransaction().begin();
         entityManager.persist(adresse);
