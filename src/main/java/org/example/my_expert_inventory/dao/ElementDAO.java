@@ -16,9 +16,9 @@ public class ElementDAO {
         return entityManager.find(Element.class, id);
     }
 
-    public List<Element> findByPiece(int idPiece) {
-        return entityManager.createQuery("SELECT e FROM Element e WHERE e.idPiece = :idPiece", Element.class)
-                .setParameter("idPiece", idPiece)
+    public List<Element> findByPiece(Piece piece) {
+        return entityManager.createQuery("SELECT e FROM Element e WHERE e.idPiece = :piece", Element.class)
+                .setParameter("piece", piece)
                 .getResultList();
     }
 

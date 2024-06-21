@@ -38,8 +38,7 @@ public class AdresseDAO {
         return updatedAdresse;
     }
 
-    public void delete(int id) {
-        Adresse adresse = findById(id);
+    public void delete(Adresse adresse) {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.contains(adresse) ? adresse : entityManager.merge(adresse));
         entityManager.getTransaction().commit();

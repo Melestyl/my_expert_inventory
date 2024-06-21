@@ -15,9 +15,9 @@ public class PieceDAO {
         return entityManager.find(Piece.class, id);
     }
 
-    public Piece findByBienId(int idBien) {
-        return entityManager.createQuery("SELECT p FROM Piece p WHERE p.idBien = :idBien", Piece.class)
-                .setParameter("idBien", idBien)
+    public Piece findByBienId(Bien bien) {
+        return entityManager.createQuery("SELECT p FROM Piece p WHERE p.idBien = :bien", Piece.class)
+                .setParameter("bien", bien)
                 .getSingleResult();
     }
 

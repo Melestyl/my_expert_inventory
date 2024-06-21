@@ -21,15 +21,15 @@ public class MinuteDAO {
         return entityManager.find(Minute.class, id);
     }
 
-    public List<Minute> findByEtatDesLieux(int idEtatDesLieux) {
-        return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idEtatDesLieux = :idEtatDesLieux", Minute.class)
-                .setParameter("idEtatDesLieux", idEtatDesLieux)
+    public List<Minute> findByEtatDesLieux(EtatDesLieux etatDesLieux) {
+        return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idEtatDesLieux = :etatDesLieux", Minute.class)
+                .setParameter("etatDesLieux", etatDesLieux)
                 .getResultList();
     }
 
-    public List<Element> findByElement(int idElement) {
-        return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idElement = :idElement", Element.class)
-                .setParameter("idElement", idElement)
+    public List<Element> findByElement(Element element) {
+        return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idElement = :element", Element.class)
+                .setParameter("element", element)
                 .getResultList();
     }
 

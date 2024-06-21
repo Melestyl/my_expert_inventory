@@ -16,9 +16,9 @@ public class BienDAO {
         return entityManager.find(Bien.class, id);
     }
 
-    public List<Bien> findByAdresse(int idAdresse) {
-        return entityManager.createQuery("SELECT b FROM Bien b WHERE b.idAdresse = :idAdresse", Bien.class)
-                .setParameter("idAdresse", idAdresse)
+    public List<Bien> findByAdresse(Adresse adresse) {
+        return entityManager.createQuery("SELECT b FROM Bien b WHERE b.idAdresse = :adresse", Bien.class)
+                .setParameter("adresse", adresse)
                 .getResultList();
     }
 
