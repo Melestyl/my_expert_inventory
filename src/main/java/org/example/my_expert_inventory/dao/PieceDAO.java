@@ -1,6 +1,6 @@
 package org.example.my_expert_inventory.dao;
 
-import org.example.my_expert_inventory.model.Bien;
+import org.example.my_expert_inventory.model.Piece;
 import jakarta.persistence.EntityManager;
 
 public class PieceDAO {
@@ -10,28 +10,28 @@ public class PieceDAO {
         this.entityManager = entityManager;
     }
 
-    public Bien fintById(int id) {
-        return entityManager.find(Bien.class, id);
+    public Piece findById(int id) {
+        return entityManager.find(Piece.class, id);
     }
 
-    public Bien create(Bien bien) {
+    public Piece create(Piece piece) {
         entityManager.getTransaction().begin();
-        entityManager.persist(bien);
+        entityManager.persist(piece);
         entityManager.getTransaction().commit();
-        return bien;
+        return piece;
     }
 
-    public Bien update(Bien bien) {
+    public Piece update(Piece piece) {
         entityManager.getTransaction().begin();
-        Bien updatedBien = entityManager.merge(bien);
+        Piece updatedPiece = entityManager.merge(piece);
         entityManager.getTransaction().commit();
-        return updatedBien;
+        return updatedPiece;
     }
 
     public void delete(int id) {
-        Bien bien = fintById(id);
+        Piece piece = findById(id);
         entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.contains(bien) ? bien : entityManager.merge(bien));
+        entityManager.remove(entityManager.contains(piece) ? piece : entityManager.merge(piece));
         entityManager.getTransaction().commit();
     }
 }
