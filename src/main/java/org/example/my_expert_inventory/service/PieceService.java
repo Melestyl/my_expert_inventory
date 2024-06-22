@@ -61,7 +61,7 @@ public class PieceService {
         return pieceDAO.findById(id);
     }
 
-    public List<Piece> piecesByBien(Bien bien){
+    public List<Piece> findPiecesByBien(Bien bien){
         return pieceDAO.findByBien(bien);
     }
 
@@ -117,7 +117,7 @@ public class PieceService {
         Piece piece3 = pieceService.createPiece(TypeDePiece.CHAMBRE, 15, 3, bien);
         Piece piece4 = pieceService.createPiece(TypeDePiece.SALLE_DE_BAIN, 10, 4, bien);
         Piece piece5 = pieceService.createPiece(TypeDePiece.CUISINE, 20, 1, bien);
-        pieceService.piecesByBien(bien).forEach(System.out::println);
+        pieceService.findPiecesByBien(bien).forEach(System.out::println);
         System.out.println(piece2);
         pieceService.updateSurface(piece2, 35);
         pieceService.updateOrdreVisite(piece2, 1);
@@ -126,6 +126,6 @@ public class PieceService {
         System.out.println(piece2);
         pieceService.deletePiece(piece2);
         pieceService.deletePiece(piece2);
-        pieceService.piecesByBien(bien).forEach(System.out::println);
+        pieceService.findPiecesByBien(bien).forEach(System.out::println);
     }
 }

@@ -22,7 +22,20 @@ public class ElementService {
         this.typeDElementDAO = typeDElementDAO;
     }
 
+    public TypeDElement typeDElementExists(String type) {
+        return typeDElementDAO.findByType(type);
+    }
+
     public TypeDElement createTypeDElement(String type) {
+        if(type == null){
+            System.out.println("Type d'élément is null, cannot create type d'élément");
+            return null;
+        }
+        TypeDElement typeDElementIfExists = typeDElementExists(type);
+        if(typeDElementIfExists != null){
+            System.out.println("Type d'élément already exists, return this type d'élément");
+            return typeDElementIfExists;
+        }
         TypeDElement typeDElement = new TypeDElement();
         typeDElement.setType(type);
         typeDElementDAO.create(typeDElement);
@@ -89,6 +102,7 @@ public class ElementService {
         Element element1 = elementService.createElement(typeDElement, piece1);
         Element element2 = elementService.createElement(typeDElement2, piece1);
         Element element3 = elementService.createElement(typeDElement3, piece1);
+
 
         System.out.println(elementService.findByPiece(piece1));
         elementService.deleteElement(element1);
