@@ -32,7 +32,7 @@ public class BienService {
     public Bien createBien(TypeDeBien typeDeBien, String proprietaire, Adresse adresse) {
         // Check if the address is already used
         if(isBienAlreadyUsed(adresse)) {
-            System.out.println("Adresse already used");
+            System.out.println("Adresse already used, cannot create a new property");
             return null;
         }
 
@@ -49,11 +49,12 @@ public class BienService {
         // Create a new address
         AdresseService adresseService = new AdresseService(new AdresseDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         Adresse adresse = adresseService.createAdresse(numeroRue, rue, codePostal, ville, complementAdresse);
-        // If the address is null, the address already exists
-        if(adresse == null) {
+
+        // Create a new property with the address
+        Bien bien = createBien(typeDeBien, proprietaire, adresse);
+        if (bien == null) {
             return null;
         }
-        Bien bien = createBien(typeDeBien, proprietaire, adresse);
         System.out.println(bien.toString());
         // Create a new property with the address
         return bien;
@@ -62,5 +63,6 @@ public class BienService {
     public static void main(String[] args) {
         BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         bienService.creatBienWithAdresse(TypeDeBien.STUDIO, "Jean Dupont", 4, "rue de la paix", 75000, "Paris", "");
+        bienService.creatBienWithAdresse(TypeDeBien.APPARTEMENT, "Jean Dupont", 4, "rue de la paix", 75000, "Paris", "");
     }
 }

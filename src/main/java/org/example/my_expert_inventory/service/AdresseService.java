@@ -11,17 +11,17 @@ public class AdresseService {
         this.adresseDAO = adresseDAO;
     }
 
-    public boolean isAdresseAlreadyExist(Integer numeroRue, String rue, Integer codePostal, String ville, String complementAdresse) {
+    public Adresse adresseAlreadyExist(Integer numeroRue, String rue, Integer codePostal, String ville, String complementAdresse) {
         // Check if the address is already used
-        Adresse adresse = adresseDAO.findByAdresse(numeroRue, rue, codePostal, ville, complementAdresse);
-        // If the list is empty, the address is not used
-        return adresse != null;
+        return adresseDAO.findByAdresse(numeroRue, rue, codePostal, ville, complementAdresse);
     }
 
     public Adresse createAdresse(Integer numeroRue, String rue, Integer codePostal, String ville, String complementAdresse) {
-        if (isAdresseAlreadyExist(numeroRue, rue, codePostal, ville, complementAdresse)) {
+        // Check if the address is already used
+        Adresse checkAdresse =  adresseAlreadyExist(numeroRue, rue, codePostal, ville, complementAdresse);
+        if (checkAdresse != null) {
             System.out.println("Adresse already exist");
-            return null;
+            return checkAdresse;
         }
         // Create a new address
         Adresse adresse = new Adresse();

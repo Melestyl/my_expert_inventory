@@ -4,6 +4,8 @@ import org.example.my_expert_inventory.model.Piece;
 import org.example.my_expert_inventory.model.Bien;
 import jakarta.persistence.EntityManager;
 
+import java.util.List;
+
 public class PieceDAO {
     private EntityManager entityManager;
 
@@ -15,10 +17,10 @@ public class PieceDAO {
         return entityManager.find(Piece.class, id);
     }
 
-    public Piece findByBienId(Bien bien) {
-        return entityManager.createQuery("SELECT p FROM Piece p WHERE p.idBien = :bien", Piece.class)
-                .setParameter("bien", bien)
-                .getSingleResult();
+    public List<Piece> findByBien(Bien bien) {
+    return entityManager.createQuery("SELECT a FROM Piece a where a.idBien = :bien", Piece.class)
+                    .setParameter("bien", bien)
+                    .getResultList();
     }
 
     public Piece create(Piece piece) {
