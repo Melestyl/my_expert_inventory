@@ -65,4 +65,15 @@ public class Minute {
         this.commentaire = commentaire;
     }
 
+    @Override
+    public String toString() {
+        return "Minute{" +
+                "id=" + id +
+                ", idEtatDesLieux=" + idEtatDesLieux +
+                ", idElement=" + idElement +
+                ", etatElement='" + etatElement + '\'' +
+                ", commentaire='" + commentaire + '\'' +
+                '}';
+    }
+
 }

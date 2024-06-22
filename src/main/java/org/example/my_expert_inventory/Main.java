@@ -19,7 +19,7 @@ public class Main {
         //TestAdresse(entityManager);
 
         //TestBien(entityManager);
-        TestBien(entityManager);
+        //TestBien(entityManager);
 
         entityManager.close();
     }

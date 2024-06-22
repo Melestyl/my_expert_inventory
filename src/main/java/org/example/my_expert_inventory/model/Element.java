@@ -21,10 +21,6 @@ public class Element {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public TypeDElement getIdTypeElement() {
         return idTypeElement;
     }
@@ -39,6 +35,15 @@ public class Element {
 
     public void setIdPiece(Piece idPiece) {
         this.idPiece = idPiece;
+    }
+
+    @Override
+    public String toString() {
+        return "Element{" +
+                "id=" + id +
+                ", idTypeElement=" + idTypeElement +
+                ", idPiece=" + idPiece +
+                '}';
     }
 
 }

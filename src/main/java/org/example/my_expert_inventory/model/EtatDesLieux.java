@@ -22,10 +22,6 @@ public class EtatDesLieux {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getTypeEtatDesLieux() {
         return typeEtatDesLieux;
     }
@@ -40,6 +36,15 @@ public class EtatDesLieux {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "EtatDesLieux{" +
+                "id=" + id +
+                ", typeEtatDesLieux='" + typeEtatDesLieux + '\'' +
+                ", date=" + date +
+                '}';
     }
 
 }

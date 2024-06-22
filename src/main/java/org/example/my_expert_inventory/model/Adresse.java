@@ -28,10 +28,6 @@ public class Adresse {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getNumeroRue() {
         return numeroRue;
     }
@@ -72,4 +68,15 @@ public class Adresse {
         this.complementAdresse = complementAdresse;
     }
 
+    @Override
+    public String toString() {
+        return "Adresse{" +
+                "id=" + id +
+                ", numeroRue=" + numeroRue +
+                ", rue='" + rue + '\'' +
+                ", codePostal=" + codePostal +
+                ", ville='" + ville + '\'' +
+                ", complementAdresse='" + complementAdresse + '\'' +
+                '}';
+    }
 }

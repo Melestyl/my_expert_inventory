@@ -27,10 +27,6 @@ public class Piece {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getTypeDePiece() {
         return typeDePiece;
     }
@@ -61,6 +57,17 @@ public class Piece {
 
     public void setOrdreVisite(Integer ordreVisite) {
         this.ordreVisite = ordreVisite;
+    }
+
+    @Override
+    public String toString() {
+        return "Piece{" +
+                "id=" + id +
+                ", typeDePiece='" + typeDePiece + '\'' +
+                ", idBien=" + idBien +
+                ", surface=" + surface +
+                ", ordreVisite=" + ordreVisite +
+                '}';
     }
 
 }
