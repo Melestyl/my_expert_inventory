@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Element {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 

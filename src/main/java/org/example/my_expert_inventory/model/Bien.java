@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Bien {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
