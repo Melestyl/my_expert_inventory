@@ -1,12 +1,11 @@
 package org.example.my_expert_inventory.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Adresse {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -27,10 +26,6 @@ public class Adresse {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getNumeroRue() {
@@ -73,4 +68,15 @@ public class Adresse {
         this.complementAdresse = complementAdresse;
     }
 
+    @Override
+    public String toString() {
+        return "Adresse{" +
+                "id=" + id +
+                ", numeroRue=" + numeroRue +
+                ", rue='" + rue + '\'' +
+                ", codePostal=" + codePostal +
+                ", ville='" + ville + '\'' +
+                ", complementAdresse='" + complementAdresse + '\'' +
+                '}';
+    }
 }

@@ -1,5 +1,7 @@
 package org.example.my_expert_inventory.dao;
 
+import jakarta.persistence.TypedQuery;
+import org.example.my_expert_inventory.model.Adresse;
 import org.example.my_expert_inventory.model.Element;
 import org.example.my_expert_inventory.model.TypeDElement;
 import jakarta.persistence.EntityManager;
@@ -19,6 +21,16 @@ public class TypeDElementDAO {
 
     public List<Element> findAll() {
         return entityManager.createQuery("SELECT e FROM Element e", Element.class).getResultList();
+    }
+
+    public TypeDElement findByType(String type) {
+        TypedQuery<TypeDElement> query  = entityManager.createQuery("SELECT t FROM TypeDElement t WHERE t.type = :type", TypeDElement.class)
+                .setParameter("type", type);
+        try {
+            return query.getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public TypeDElement create(TypeDElement typeDElement) {

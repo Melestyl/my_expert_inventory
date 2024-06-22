@@ -2,13 +2,14 @@ package org.example.my_expert_inventory.model;
 
 import jakarta.persistence.*;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
 public class Minute {
     @Id
     @Column(name = "dateHeureMinute", nullable = false)
-    private Instant id;
+    private Timestamp dateHeureMinute;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idEtatDesLieux", nullable = false)
@@ -25,12 +26,12 @@ public class Minute {
     @Column(name = "Commentaire", length = 128)
     private String commentaire;
 
-    public Instant getId() {
-        return id;
+    public Timestamp getdateHeureMinute() {
+        return dateHeureMinute;
     }
 
-    public void setId(Instant id) {
-        this.id = id;
+    public void setdateHeureMinute(Timestamp dateHeureMinute) {
+        this.dateHeureMinute = dateHeureMinute;
     }
 
     public EtatDesLieux getIdEtatDesLieux() {

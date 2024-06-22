@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Bien {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -21,10 +22,6 @@ public class Bien {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTypeDeBien() {
@@ -51,4 +48,14 @@ public class Bien {
         this.proprietaire = proprietaire;
     }
 
-}
+    @Override
+    public String toString() {
+        return "Bien{" +
+                "id=" + id +
+                ", typeDeBien='" + typeDeBien + '\'' +
+                ", idAdresse=" + idAdresse +
+                ", proprietaire='" + proprietaire + '\'' +
+                '}';
+    }
+
+    }

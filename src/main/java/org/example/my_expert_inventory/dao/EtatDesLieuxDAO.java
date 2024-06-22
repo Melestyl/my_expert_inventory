@@ -1,5 +1,6 @@
 package org.example.my_expert_inventory.dao;
 
+import org.example.my_expert_inventory.model.Bien;
 import org.example.my_expert_inventory.model.EtatDesLieux;
 import jakarta.persistence.EntityManager;
 
@@ -16,9 +17,9 @@ public class EtatDesLieuxDAO {
         return entityManager.find(EtatDesLieux.class, id);
     }
 
-    public List<EtatDesLieux> findByTypeEtatDesLieux(String typeEtatDesLieux) {
-        return entityManager.createQuery("SELECT e FROM EtatDesLieux e WHERE e.typeEtatDesLieux = :typeEtatDesLieux", EtatDesLieux.class)
-                .setParameter("typeEtatDesLieux", typeEtatDesLieux)
+    public List<EtatDesLieux> findEtatDesLieuxByBien(Bien bien) {
+        return entityManager.createQuery("SELECT DISTINCT edl FROM EtatDesLieux edl JOIN edl.minute m WHERE m.bien = :bien", EtatDesLieux.class)
+                .setParameter("bien", bien)
                 .getResultList();
     }
 

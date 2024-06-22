@@ -1,15 +1,13 @@
 package org.example.my_expert_inventory.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 public class EtatDesLieux {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -22,10 +20,6 @@ public class EtatDesLieux {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTypeEtatDesLieux() {
@@ -42,6 +36,15 @@ public class EtatDesLieux {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "EtatDesLieux{" +
+                "id=" + id +
+                ", typeEtatDesLieux='" + typeEtatDesLieux + '\'' +
+                ", date=" + date +
+                '}';
     }
 
 }

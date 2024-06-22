@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Piece {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -24,10 +25,6 @@ public class Piece {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTypeDePiece() {
@@ -60,6 +57,17 @@ public class Piece {
 
     public void setOrdreVisite(Integer ordreVisite) {
         this.ordreVisite = ordreVisite;
+    }
+
+    @Override
+    public String toString() {
+        return "Piece{" +
+                "id=" + id +
+                ", typeDePiece='" + typeDePiece + '\'' +
+                ", idBien=" + idBien +
+                ", surface=" + surface +
+                ", ordreVisite=" + ordreVisite +
+                '}';
     }
 
 }

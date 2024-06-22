@@ -1,6 +1,7 @@
 package org.example.my_expert_inventory;
 
 
+import eu.hansolo.tilesfx.Test;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -15,10 +16,10 @@ public class Main {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         //TestAdresse(entityManager);
-        TestAdresse(entityManager);
+        //TestAdresse(entityManager);
 
         //TestBien(entityManager);
-        TestBien(entityManager);
+        //TestBien(entityManager);
 
         entityManager.close();
     }
@@ -28,8 +29,7 @@ public class Main {
         AdresseDAO adresseDAO = new AdresseDAO(entityManager);
 
         Adresse adresse = new Adresse();
-            adresse.setId(1);
-            adresse.setNumeroRue(1);
+            adresse.setNumeroRue(2);
             adresse.setRue("rue de la paix");
             adresse.setCodePostal(75000);
             adresse.setVille("Paris");
@@ -47,24 +47,19 @@ public class Main {
         BienDAO bienDAO = new BienDAO(entityManager);
 
         Bien bien = new Bien();
-        bien.setId(1);
         bien.setTypeDeBien("Maison");
-        bien.setIdAdresse(adresseDAO.findById(1));
+        bien.setIdAdresse(adresseDAO.findById(3));
         bien.setProprietaire("Jean Dupont");
         bienDAO.create(bien);
 
         Bien bien2 = new Bien();
-        bien2.setId(2);
         bien2.setTypeDeBien("Appartement");
-        bien2.setIdAdresse(adresseDAO.findById(1));
+        bien2.setIdAdresse(adresseDAO.findById(3));
         bien2.setProprietaire("Jeanne Dupont");
         bienDAO.create(bien2);
 
-        bienDAO.findByAdresse(adresseDAO.findById(1)).forEach(System.out::println)  ;
+        bienDAO.findByAdresse(adresseDAO.findById(3)).forEach(System.out::println)  ;
 
-        bienDAO.delete(bien);
-        bienDAO.delete(bien2);
-        adresseDAO.delete(adresseDAO.findById(1));
 
     }
 }

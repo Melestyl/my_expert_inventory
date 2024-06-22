@@ -1,10 +1,6 @@
 package org.example.my_expert_inventory.dao;
 
-import org.example.my_expert_inventory.model.Minute;
-import org.example.my_expert_inventory.model.EtatDesLieux;
-import org.example.my_expert_inventory.model.Element;
-
-import org.example.my_expert_inventory.model.Minute;
+import org.example.my_expert_inventory.model.*;
 
 
 import jakarta.persistence.EntityManager;
@@ -17,18 +13,14 @@ public class MinuteDAO {
         this.entityManager = entityManager;
     }
 
-    public Minute findById(int id) {
-        return entityManager.find(Minute.class, id);
-    }
-
     public List<Minute> findByEtatDesLieux(EtatDesLieux etatDesLieux) {
         return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idEtatDesLieux = :etatDesLieux", Minute.class)
                 .setParameter("etatDesLieux", etatDesLieux)
                 .getResultList();
     }
 
-    public List<Element> findByElement(Element element) {
-        return entityManager.createQuery("SELECT m FROM Minute m WHERE m.idElement = :element", Element.class)
+    public List<Minute> findByElement(Element element) {
+        return entityManager.createQuery("SELECT m FROM Minute m JOIN m.idElement e WHERE e = :element", Minute.class)
                 .setParameter("element", element)
                 .getResultList();
     }
