@@ -20,4 +20,6 @@ module org.example.my_expert_inventory {
     opens org.example.my_expert_inventory.model;
     exports org.example.my_expert_inventory.model;
     opens org.example.my_expert_inventory;
+	exports org.example.my_expert_inventory.controllers;
+	opens org.example.my_expert_inventory.controllers;
 }
