@@ -71,7 +71,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button id="createInventory" fx:id="createInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#setViewInventory" text="Effectuer un état des lieux" textAlignment="CENTER">
+            <Button id="createInventory" fx:id="createInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#setCreateInventory" text="Effectuer un état des lieux" textAlignment="CENTER">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
@@ -98,7 +98,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button id="viewInventory" fx:id="viewInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#setCreateInventory" text="Consulter un état des lieux" textAlignment="CENTER">
+            <Button id="viewInventory" fx:id="viewInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#setViewInventory" text="Consulter un état des lieux" textAlignment="CENTER">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
