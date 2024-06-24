@@ -66,7 +66,7 @@ public class BienService {
 
     public static void main(String[] args) {
         BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
-        bienService.creatBienWithAdresse(TypeDeBien.STUDIO, "Jean Dupont", 4, "rue de la paix", 75000, "Paris", "");
-        bienService.creatBienWithAdresse(TypeDeBien.APPARTEMENT, "Jean Dupont", 5, "rue de la paix", 75000, "Paris", "");
+        bienService.creatBienWithAdresse(TypeDeBien.ECOLE, "Tom Tellier-Caloone", 4, "rue de l'IG2I", 75000, "Paris", "");
+        bienService.creatBienWithAdresse(TypeDeBien.APPARTEMENT, "Anaël Delannoy", 18, "rue du Crous", 75000, "Paris", "");
     }
 }

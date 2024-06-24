@@ -1,20 +1,14 @@
 package org.example.my_expert_inventory.controllers;
 
 import jakarta.persistence.Persistence;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import org.example.my_expert_inventory.HelloApplication;
 import org.example.my_expert_inventory.dao.BienDAO;
 import org.example.my_expert_inventory.model.Bien;
 import org.example.my_expert_inventory.service.BienService;
+import org.example.my_expert_inventory.controllers.SceneManager;
 
 
 import java.io.IOException;
@@ -48,21 +42,10 @@ public class CreateInventorySelectBien implements Initializable{
     }
 
     @FXML
-    private Initializable loadScene(String fxmlFile, Node node) throws IOException {
-        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
-        Parent root = loader.load();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        return loader.getController();
-    }
-
-    @FXML
     public void setBackToHome() {
         System.out.println("Back to Home");
         try {
-            loadScene("home.fxml", backToHome);
+            SceneManager.loadScene("home.fxml", backToHome);
         } catch (IOException e) {
             e.printStackTrace();
         }

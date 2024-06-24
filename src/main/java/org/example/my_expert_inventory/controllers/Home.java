@@ -33,22 +33,11 @@ public class Home implements Initializable {
 	void setViewInventory() throws IOException {
 		System.out.println("View Inventory");
 		try {
-			loadScene("create-inventory-select-bien.fxml", createInventory);
+			SceneManager.loadScene("create-inventory-select-bien.fxml", createInventory);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-	}
-
-	@FXML
-	private Initializable loadScene(String fxmlFile, Node node) throws IOException {
-		FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
-		Parent root = loader.load();
-		Stage stage = (Stage) node.getScene().getWindow();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-		return loader.getController();
 	}
 
 	@FXML
