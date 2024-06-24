@@ -44,7 +44,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="505.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="addBien" alignment="CENTER" contentDisplay="CENTER" disable="true" minWidth="650.0" mnemonicParsing="false" text="Ajouter un bien" textAlignment="CENTER">
+            <Button id="addBien" fx:id="addBien" alignment="CENTER" contentDisplay="CENTER" disable="true" minWidth="650.0" mnemonicParsing="false" text="Ajouter un bien" textAlignment="CENTER">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
@@ -54,8 +54,24 @@
                <font>
                   <Font size="24.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.28947368264198303" green="0.02010233886539936" blue="0.02010233886539936" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8684210777282715" green="0.40405702590942383" blue="0.024122806265950203" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button id="createInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" text="Effectuer un état des lieux" textAlignment="CENTER">
+            <Button id="createInventory" fx:id="createInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" text="Effectuer un état des lieux" textAlignment="CENTER">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
@@ -65,14 +81,46 @@
                <font>
                   <Font size="24.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.28947368264198303" green="0.02010233886539936" blue="0.02010233886539936" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5699999928474426" green="1.0" blue="0.8797186613082886" opacity="0.9800000190734863" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button id="viewInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" text="Consulter un état des lieux" textAlignment="CENTER">
+            <Button id="viewInventory" fx:id="viewInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#onViewInventoryButtonClick" text="Consulter un état des lieux" textAlignment="CENTER">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
                <font>
                   <Font size="24.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.4399999976158142" green="0.3653191030025482" blue="0.004399999976158142" opacity="0.9800000190734863" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.44325658679008484" green="0.31469297409057617" blue="0.8289473652839661" opacity="0.9800000190734863" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
          </children>
       </VBox>
