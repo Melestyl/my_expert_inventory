@@ -11,8 +11,10 @@ import javafx.stage.Stage;
 import org.example.my_expert_inventory.HelloApplication;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Home {
+public class Home implements Initializable {
 	@FXML
 	private Button addBien;
 
@@ -52,5 +54,10 @@ public class Home {
 	@FXML
 	void setCreateInventory() {
 		System.out.println("Create Inventory");
+	}
+
+	@Override
+	public void initialize(URL url, ResourceBundle resourceBundle) {
+		System.out.println("Home");
 	}
 }

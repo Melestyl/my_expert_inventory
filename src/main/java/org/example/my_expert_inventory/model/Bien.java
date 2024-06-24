@@ -50,12 +50,7 @@ public class Bien {
 
     @Override
     public String toString() {
-        return "Bien{" +
-                "id=" + id +
-                ", typeDeBien='" + typeDeBien + '\'' +
-                ", idAdresse=" + idAdresse +
-                ", proprietaire='" + proprietaire + '\'' +
-                '}';
+        return proprietaire + " : " + typeDeBien + " à " + idAdresse.toString();
     }
 
     }
