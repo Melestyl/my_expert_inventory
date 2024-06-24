@@ -76,6 +76,11 @@ public class EtatDesLieuxService {
             System.out.println("Element is null, cannot create minute");
             return null;
         }
+        Minute oldMinute = minuteDAO.findByElementAndEtatDesLieux(element, etatDesLieux);
+        if(oldMinute != null){
+            System.out.println("Minute already exists for this element and etat des lieux, updating minute");
+            return updateMinute(oldMinute, commentaire, etatElement);
+        }
         Minute minute = new Minute();
         minute.setCommentaire(commentaire);
         minute.setEtatElement(etatElement.toString());
