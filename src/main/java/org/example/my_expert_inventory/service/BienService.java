@@ -22,6 +22,10 @@ public class BienService {
         this.bienDAO = bienDAO;
     }
 
+    public List<Bien> findAllBiens() {
+        return bienDAO.findAll();
+    }
+
     public boolean isBienAlreadyUsed(Adresse adresse) {
         // Check if the address is already used
         List<Bien> biens = bienDAO.findByAdresse(adresse);
@@ -63,6 +67,6 @@ public class BienService {
     public static void main(String[] args) {
         BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         bienService.creatBienWithAdresse(TypeDeBien.STUDIO, "Jean Dupont", 4, "rue de la paix", 75000, "Paris", "");
-        bienService.creatBienWithAdresse(TypeDeBien.APPARTEMENT, "Jean Dupont", 4, "rue de la paix", 75000, "Paris", "");
+        bienService.creatBienWithAdresse(TypeDeBien.APPARTEMENT, "Jean Dupont", 5, "rue de la paix", 75000, "Paris", "");
     }
 }

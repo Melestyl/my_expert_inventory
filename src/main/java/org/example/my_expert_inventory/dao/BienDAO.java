@@ -12,6 +12,10 @@ public class BienDAO {
         this.entityManager = entityManager;
     }
 
+    public List<Bien> findAll() {
+        return entityManager.createQuery("SELECT b FROM Bien b", Bien.class).getResultList();
+    }
+
     public Bien fintById(int id) {
         return entityManager.find(Bien.class, id);
     }
