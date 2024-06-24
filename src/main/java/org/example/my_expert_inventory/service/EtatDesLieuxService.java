@@ -81,13 +81,7 @@ public class EtatDesLieuxService {
         minute.setEtatElement(etatElement.toString());
         minute.setIdElement(element);
         minute.setIdEtatDesLieux(etatDesLieux);
-        // Obtenez la date et l'heure actuelles jusqu'aux millisecondes
-        LocalDateTime now = LocalDateTime.now();
-        Timestamp timestamp = Timestamp.valueOf(now);
-        System.out.println("Current Timestamp: " + timestamp);
-        minute.setdateHeureMinute(timestamp);
         minuteDAO.create(minute);
-        sleep(1000);
         return minute;
     }
 
