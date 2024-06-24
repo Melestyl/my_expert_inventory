@@ -13,9 +13,18 @@ public class Home {
 	@FXML
 	private Button viewInventory;
 
-	// Sout something when viewInventory button is clicked
 	@FXML
-	protected void onViewInventoryButtonClick() {
-		System.out.println("View Inventory button clicked!");
+	void setAddBien() {
+		System.out.println("Add Bien");
+	}
+
+	@FXML
+	void setViewInventory() {
+		System.out.println("View Inventory");
+	}
+
+	@FXML
+	void setCreateInventory() {
+		System.out.println("Create Inventory");
 	}
 }
