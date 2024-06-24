@@ -25,6 +25,17 @@ public class MinuteDAO {
                 .getResultList();
     }
 
+    public Minute findByElementAndEtatDesLieux(Element element, EtatDesLieux etatDesLieux) {
+        List<Minute> minutes = entityManager.createQuery("SELECT m FROM Minute m JOIN m.idElement e WHERE e = :element AND m.idEtatDesLieux = :etatDesLieux", Minute.class)
+                .setParameter("element", element)
+                .setParameter("etatDesLieux", etatDesLieux)
+                .getResultList();
+        if (minutes.isEmpty()) {
+            return null;
+        }
+        return minutes.get(0);
+    }
+
     public Minute create(Minute minute) {
         entityManager.getTransaction().begin();
         entityManager.persist(minute);
