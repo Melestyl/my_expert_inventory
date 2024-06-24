@@ -1,14 +1,8 @@
 package org.example.my_expert_inventory.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import org.example.my_expert_inventory.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,8 +19,13 @@ public class Home implements Initializable {
 	private Button viewInventory;
 
 	@FXML
-	void setAddBien() {
+	void setAddBien() throws IOException {
 		System.out.println("Add Bien");
+		try {
+			SceneManager.loadScene("add-bien.fxml", addBien);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML

@@ -14,6 +14,7 @@ module org.example.my_expert_inventory {
 
     requires kotlin.stdlib;
     requires org.hibernate.orm.core;
+    requires jdk.jdi;
 
     exports org.example.my_expert_inventory;
 
