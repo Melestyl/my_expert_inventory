@@ -11,11 +11,11 @@ import java.util.List;
 import static java.lang.Thread.sleep;
 
 public class EtatDesLieuxService {
-    enum TypeEtatDesLieux {
+    public enum TypeEtatDesLieux {
         ENTREE,
         SORTIE
     }
-    enum EtatElement {
+    public enum EtatElement {
         MAUVAIS,
         PASSABLE,
         BON,
@@ -76,6 +76,9 @@ public class EtatDesLieuxService {
             System.out.println("Element is null, cannot create minute");
             return null;
         }
+        if (commentaire == null)
+            commentaire = "";
+
         Minute minute = new Minute();
         minute.setCommentaire(commentaire);
         minute.setEtatElement(etatElement.toString());
