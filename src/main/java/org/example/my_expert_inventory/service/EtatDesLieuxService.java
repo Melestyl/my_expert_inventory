@@ -121,7 +121,7 @@ public class EtatDesLieuxService {
     public static void main(String[] args) throws InterruptedException {
 
         // Create a new piece
-        PieceService pieceService = new PieceService(new PieceDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+        /*PieceService pieceService = new PieceService(new PieceDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         ElementService elementService = new ElementService(new ElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new TypeDElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
 
@@ -151,7 +151,18 @@ public class EtatDesLieuxService {
         etatDesLieuxService.deleteMinute(minute1);
         etatDesLieuxService.updateTypeEtatDesLieux(etatDesLieux, TypeEtatDesLieux.SORTIE);
         etatDesLieuxService.updateMinute(minute2, "Une petite usure", EtatElement.BON);
-        System.out.println(etatDesLieuxService.findMinutesByEtatDesLieux(etatDesLieux));
+        System.out.println(etatDesLieuxService.findMinutesByEtatDesLieux(etatDesLieux));*/
+
+        BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+        EtatDesLieuxService etatDesLieuxService = new EtatDesLieuxService(new EtatDesLieuxDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new MinuteDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+        Bien bien = bienService.getBienById(24);
+
+        List<EtatDesLieux> etatDesLieuxes = etatDesLieuxService.findEtatDesLieuxByBien(bien);
+        for (EtatDesLieux etatDesLieux : etatDesLieuxes) {
+            System.out.println(etatDesLieux);
+        }
+
+
 
 
 
