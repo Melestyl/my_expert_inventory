@@ -33,6 +33,10 @@ public class BienService {
         return !biens.isEmpty();
     }
 
+    public Bien getBienById(int id) {
+        return bienDAO.findById(id);
+    }
+
     public Bien createBien(TypeDeBien typeDeBien, String proprietaire, Adresse adresse) {
         // Check if the address is already used
         if(isBienAlreadyUsed(adresse)) {
