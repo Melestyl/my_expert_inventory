@@ -28,11 +28,11 @@ public class CreateInventory implements Initializable {
 	private List<Element> elements;
 	private EtatDesLieux etatDesLieux;
 
-	List<EtatDesLieuxService.EtatElement> etatElements;
-	ObservableList<EtatDesLieuxService.EtatElement> observableEtat;
+	private List<EtatDesLieuxService.EtatElement> etatElements;
+	private ObservableList<EtatDesLieuxService.EtatElement> observableEtat;
 
 	// Create an observable list of enum
-	EtatDesLieuxService.TypeEtatDesLieux[] typeEtatDesLieux = EtatDesLieuxService.TypeEtatDesLieux.values();
+	private EtatDesLieuxService.TypeEtatDesLieux[] typeEtatDesLieux = EtatDesLieuxService.TypeEtatDesLieux.values();
 
 	@FXML public Button backToHome;
 	@FXML public RadioButton entreeBtn;

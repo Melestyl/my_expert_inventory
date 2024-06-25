@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="720.0" style="-fx-background-color: #e3e3e3;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.my_expert_inventory.controllers.ViewInventorySelectBien">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="720.0" style="-fx-background-color: #e3e3e3;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.my_expert_inventory.controllers.ViewInventorySelectInventory">
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="720.0" BorderPane.alignment="CENTER">
             <children>
@@ -36,7 +36,7 @@
         <SplitPane dividerPositions="0.5" prefHeight="0.0" prefWidth="720.0" BorderPane.alignment="CENTER">
             <items>
                 <Button id="backToHome" fx:id="backToHome" mnemonicParsing="false" onAction="#setBackToHome" text="Retour" />
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="218.0" prefWidth="650.0" text="Choix d'un bien" textAlignment="CENTER">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="218.0" prefWidth="650.0" text="Choix d'un état des lieux" textAlignment="CENTER">
                     <font>
                         <Font size="24.0" />
                     </font>

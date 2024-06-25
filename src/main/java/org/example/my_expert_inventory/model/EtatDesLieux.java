@@ -40,11 +40,7 @@ public class EtatDesLieux {
 
     @Override
     public String toString() {
-        return "EtatDesLieux{" +
-                "id=" + id +
-                ", typeEtatDesLieux='" + typeEtatDesLieux + '\'' +
-                ", date=" + date +
-                '}';
+        return "Etat des lieux de " + typeEtatDesLieux + " du " + date;
     }
 
 }
