@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="720.0" style="-fx-background-color: #e3e3e3;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.my_expert_inventory.controllers.CreateInventory">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane prefHeight="469.0" prefWidth="720.0">
+               <content>
+                  <GridPane id="gridPane" fx:id="gridPane" alignment="TOP_CENTER" gridLinesVisible="true" prefHeight="259.0" prefWidth="543.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <SplitPane dividerPositions="0.5" prefHeight="0.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+        <items>
+            <Button id="backToHome" fx:id="backToHome" mnemonicParsing="false" onAction="#setBackToHome" text="Retour" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="650.0" text="Effectuer l'état des lieux" textAlignment="CENTER">
+                <font>
+                    <Font size="24.0" />
+                </font>
+                <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.3019607961177826" green="0.5686274766921997" blue="0.7254902124404907" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5137255191802979" green="0.23137255012989044" blue="0.23137255012989044" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill>
+            </Label>
+        </items>
+      </SplitPane>
+   </top>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+   <left>
+      <AnchorPane prefHeight="470.0" prefWidth="235.0" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton id="entreeBtn" fx:id="entreeBtn" layoutY="14.0" mnemonicParsing="false" selected="true" text="Entrée">
+               <toggleGroup>
+                  <ToggleGroup fx:id="invType" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton id="sortieBtn" fx:id="sortieBtn" layoutY="35.0" mnemonicParsing="false" text="Sortie" toggleGroup="$invType" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

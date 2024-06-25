@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.my_expert_inventory.HelloApplication;
+import org.example.my_expert_inventory.model.Bien;
 
 import java.io.IOException;
 

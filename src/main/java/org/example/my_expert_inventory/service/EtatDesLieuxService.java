@@ -11,11 +11,11 @@ import java.util.List;
 import static java.lang.Thread.sleep;
 
 public class EtatDesLieuxService {
-    enum TypeEtatDesLieux {
+    public enum TypeEtatDesLieux {
         ENTREE,
         SORTIE
     }
-    enum EtatElement {
+    public enum EtatElement {
         MAUVAIS,
         PASSABLE,
         BON,

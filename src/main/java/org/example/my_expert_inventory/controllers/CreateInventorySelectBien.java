@@ -35,7 +35,12 @@ public class CreateInventorySelectBien implements Initializable{
             Button button = new Button(bien.toString());
             button.setStyle(buttonStyle);
             button.setOnAction(e -> {
-                System.out.println(bien);
+                try {
+                    CreateInventory.bien = bien;
+                    SceneManager.loadScene("create-inventory.fxml", eltVbox);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             });
             eltVbox.getChildren().add(button);
         }
