@@ -1,5 +1,6 @@
 package org.example.my_expert_inventory.dao;
 
+import jakarta.persistence.Persistence;
 import org.example.my_expert_inventory.model.Piece;
 import org.example.my_expert_inventory.model.Bien;
 import jakarta.persistence.EntityManager;

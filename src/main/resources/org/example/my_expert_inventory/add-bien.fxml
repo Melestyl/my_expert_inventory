@@ -68,7 +68,7 @@
       </AnchorPane>
    </center>
    <top>
-      <SplitPane dividerPositions="0.09331476323119778" prefHeight="0.0" prefWidth="720.0" style="-fx-background-color: white; -fx-border-color: transparent; -fx-box-border: transparatn;" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.09331476323119778" prefHeight="0.0" prefWidth="720.0" style="-fx-background-color: white; -fx-box-border: greegr;" BorderPane.alignment="CENTER">
         <items>
             <Button id="backToHome" fx:id="backToHome" mnemonicParsing="false" onAction="#setBackToHome" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5;" text="Retour" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="218.0" prefWidth="650.0" text="Créer un bien">

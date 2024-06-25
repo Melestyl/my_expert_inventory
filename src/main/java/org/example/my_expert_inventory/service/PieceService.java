@@ -110,22 +110,11 @@ public class PieceService {
         // Create a new piece
         PieceService pieceService = new PieceService(new PieceDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
-        Bien bien = bienService.creatBienWithAdresse(BienService.TypeDeBien.MAISON, "John Doe", 1, "rue de la paix", 75000, "Paris", "");
-        System.out.println("test");
+        Bien bien = bienService.getBienById(24);
         Piece piece1 = pieceService.createPiece(TypeDePiece.CUISINE, 20, 1, bien);
         Piece piece2 = pieceService.createPiece(TypeDePiece.SALON, 30, 2, bien);
         Piece piece3 = pieceService.createPiece(TypeDePiece.CHAMBRE, 15, 3, bien);
         Piece piece4 = pieceService.createPiece(TypeDePiece.SALLE_DE_BAIN, 10, 4, bien);
         Piece piece5 = pieceService.createPiece(TypeDePiece.CUISINE, 20, 1, bien);
-        pieceService.findPiecesByBien(bien).forEach(System.out::println);
-        System.out.println(piece2);
-        pieceService.updateSurface(piece2, 35);
-        pieceService.updateOrdreVisite(piece2, 1);
-        System.out.println(piece2);
-        pieceService.updateOrdreVisite(piece2, 3);
-        System.out.println(piece2);
-        pieceService.deletePiece(piece2);
-        pieceService.deletePiece(piece2);
-        pieceService.findPiecesByBien(bien).forEach(System.out::println);
     }
 }
