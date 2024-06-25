@@ -123,13 +123,14 @@ public class EtatDesLieuxService {
         // Create a new piece
         /*PieceService pieceService = new PieceService(new PieceDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
-        ElementService elementService = new ElementService(new ElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new TypeDElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
 
 
         Bien bien = bienService.creatBienWithAdresse(BienService.TypeDeBien.MAISON, "John Doe", 1, "rue de la paix", 75000, "Paris", "");
         Piece piece1 = pieceService.createPiece(PieceService.TypeDePiece.SALON, 20, 1, bien);
 
         EtatDesLieuxService etatDesLieuxService = new EtatDesLieuxService(new EtatDesLieuxDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new MinuteDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+
+        ElementService elementService = new ElementService(new ElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new TypeDElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
 
         TypeDElement typeDElement = elementService.createTypeDElement("Table");
         TypeDElement typeDElement2 = elementService.createTypeDElement("Chaise");
@@ -152,7 +153,7 @@ public class EtatDesLieuxService {
         etatDesLieuxService.updateTypeEtatDesLieux(etatDesLieux, TypeEtatDesLieux.SORTIE);
         etatDesLieuxService.updateMinute(minute2, "Une petite usure", EtatElement.BON);
         System.out.println(etatDesLieuxService.findMinutesByEtatDesLieux(etatDesLieux));*/
-
+/*
         BienService bienService = new BienService(new BienDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         EtatDesLieuxService etatDesLieuxService = new EtatDesLieuxService(new EtatDesLieuxDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new MinuteDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         Bien bien = bienService.getBienById(24);
@@ -160,7 +161,51 @@ public class EtatDesLieuxService {
         List<EtatDesLieux> etatDesLieuxes = etatDesLieuxService.findEtatDesLieuxByBien(bien);
         for (EtatDesLieux etatDesLieux : etatDesLieuxes) {
             System.out.println(etatDesLieux);
-        }
+        }*/
+
+
+        ElementService elementService = new ElementService(new ElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new TypeDElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+        elementService.createTypeDElement("Etat général");
+        elementService.createTypeDElement("Canapé");
+        elementService.createTypeDElement("Lit");
+        elementService.createTypeDElement("Chaise");
+        elementService.createTypeDElement("Table");
+        elementService.createTypeDElement("Mur");
+        elementService.createTypeDElement("Plafond");
+        elementService.createTypeDElement("Armoire");
+        elementService.createTypeDElement("Étagère");
+        elementService.createTypeDElement("Commode");
+        elementService.createTypeDElement("Bureau");
+        elementService.createTypeDElement("Miroir");
+        elementService.createTypeDElement("Tapis");
+        elementService.createTypeDElement("Rideau");
+        elementService.createTypeDElement("Luminaire");
+        elementService.createTypeDElement("Porte");
+        elementService.createTypeDElement("Fenêtre");
+        elementService.createTypeDElement("Étagère murale");
+        elementService.createTypeDElement("Tabouret");
+        elementService.createTypeDElement("Meuble TV");
+        elementService.createTypeDElement("Buffet");
+        elementService.createTypeDElement("Lavabo");
+        elementService.createTypeDElement("Douche");
+        elementService.createTypeDElement("Baignoire");
+        elementService.createTypeDElement("Toilette");
+        elementService.createTypeDElement("Réfrigérateur");
+        elementService.createTypeDElement("Cuisinière");
+        elementService.createTypeDElement("Micro-ondes");
+        elementService.createTypeDElement("Four");
+        elementService.createTypeDElement("Lave-vaisselle");
+        elementService.createTypeDElement("Machine à laver");
+        elementService.createTypeDElement("Sèche-linge");
+        elementService.createTypeDElement("Placard");
+        elementService.createTypeDElement("Garde-manger");
+        elementService.createTypeDElement("Hotte");
+        elementService.createTypeDElement("Étendoir");
+        elementService.createTypeDElement("Rampe");
+        elementService.createTypeDElement("Volets");
+        elementService.createTypeDElement("Stores");
+
+
 
 
 

@@ -43,7 +43,7 @@ public class AddElement implements Initializable {
 
     public static Bien bien;
 
-    public static ObservableList<Piece> pieces;
+    public ObservableList<Piece> pieces;
 
     private int indexCount = 0;
 
@@ -120,16 +120,13 @@ public class AddElement implements Initializable {
             TypeDElement typeDElement = ((ChoiceBox<TypeDElement>) table.getChildren().get((i+1) * table.getColumnCount() + 2)).getValue();
 
             elementService.createElement(typeDElement, piece);
-
-            try {
-                SceneManager.loadScene("home.fxml", saveElements);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
 
-
-
+        try {
+            SceneManager.loadScene("home.fxml", saveElements);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -149,13 +146,18 @@ public class AddElement implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        pieces = FXCollections.observableArrayList();
+
         // Retrieve the list of pieces from the Bien object
+        ElementService elementService = new ElementService(new ElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()),new TypeDElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+        PieceService pieceService = new PieceService(new PieceDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+
         bien = AddPiece.bien;
-        pieces = AddPiece.pieces;
+        pieces.addAll(pieceService.findPiecesByBien(bien));
 
         //Get the list of type elements
-        ElementService elementService = new ElementService(new ElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()),new TypeDElementDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
         typesDElements = elementService.findAllTypeDElement();
+
 
         // Add the rows to the table
         table.addRow(indexCount, new Label("Piece"), new Label("Type d'Element"));
