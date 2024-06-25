@@ -19,8 +19,9 @@ public class TypeDElementDAO {
         return entityManager.find(TypeDElement.class, id);
     }
 
-    public List<Element> findAll() {
-        return entityManager.createQuery("SELECT e FROM Element e", Element.class).getResultList();
+    public List<TypeDElement> findAll() {
+        TypedQuery<TypeDElement> query = entityManager.createQuery("SELECT t FROM TypeDElement t", TypeDElement.class);
+        return query.getResultList();
     }
 
     public TypeDElement findByType(String type) {

@@ -43,11 +43,13 @@ public class AddPiece implements Initializable{
 
     public static Bien bien;
 
-    public static ObservableList<Piece> pieces;
+    public ObservableList<Piece> pieces;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        pieces = FXCollections.observableArrayList();
+
         test.addRow(indexCount, new Label("Type de pièce"), new Label("Surface"));
         listPiece = FXCollections.observableArrayList();
         bien=AddBien.monBien;
@@ -102,13 +104,13 @@ public class AddPiece implements Initializable{
             Integer surface = Integer.parseInt(((TextField) test.getChildren().get((i+1) * test.getColumnCount() + 2)).getText());
 
             pieceService.createPiece(typeDePiece, surface,i+1, bien);
+        }
 
-            try {
-                SceneManager.loadScene("add-element.fxml", savePieces);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+        System.out.printf("Save Pieces");
+        try {
+            SceneManager.loadScene("add-element.fxml", savePieces);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

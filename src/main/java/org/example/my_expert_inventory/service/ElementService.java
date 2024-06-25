@@ -42,7 +42,7 @@ public class ElementService {
         return typeDElement;
     }
 
-    public List<Element> findAllTypeDElement() {
+    public List<TypeDElement> findAllTypeDElement() {
         return typeDElementDAO.findAll();
     }
 
