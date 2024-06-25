@@ -32,7 +32,7 @@ public class Home implements Initializable {
 	void setViewInventory() throws IOException {
 		System.out.println("View Inventory");
 		try {
-			SceneManager.loadScene("create-inventory-select-bien.fxml", viewInventory);
+			SceneManager.loadScene("view-inventory-select-bien.fxml", viewInventory);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -41,13 +41,10 @@ public class Home implements Initializable {
 	@FXML
 	void setCreateInventory() {
 		System.out.println("Create Inventory");
-		{
-			System.out.println("View Inventory");
-			try {
-				SceneManager.loadScene("create-inventory-select-bien.fxml", createInventory);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		try {
+			SceneManager.loadScene("create-inventory-select-bien.fxml", viewInventory);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 

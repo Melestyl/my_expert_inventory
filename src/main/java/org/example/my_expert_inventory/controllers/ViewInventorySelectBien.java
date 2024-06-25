@@ -1,22 +1,23 @@
 package org.example.my_expert_inventory.controllers;
 
 import jakarta.persistence.Persistence;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import org.example.my_expert_inventory.dao.BienDAO;
 import org.example.my_expert_inventory.model.Bien;
 import org.example.my_expert_inventory.service.BienService;
+import org.example.my_expert_inventory.controllers.SceneManager;
+
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ViewInventorySelectBien implements Initializable{
-
-	List<Bien> biens;
+public class ViewInventorySelectBien implements Initializable {
+    List<Bien> biens;
 
     @FXML private VBox eltVbox;
     @FXML private Button backToHome;
@@ -33,7 +34,12 @@ public class ViewInventorySelectBien implements Initializable{
             Button button = new Button(bien.toString());
             button.setStyle(buttonStyle);
             button.setOnAction(e -> {
-                System.out.println(bien);
+                try {
+                    ViewInventorySelectInventory.bien = bien;
+                    SceneManager.loadScene("view-inventory-select-inventory.fxml", eltVbox);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             });
             eltVbox.getChildren().add(button);
         }

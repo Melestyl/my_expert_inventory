@@ -18,8 +18,8 @@ public class EtatDesLieuxDAO {
     }
 
     public List<EtatDesLieux> findEtatDesLieuxByBien(Bien bien) {
-        return entityManager.createQuery("SELECT DISTINCT edl FROM EtatDesLieux edl JOIN edl.minute m WHERE m.bien = :bien", EtatDesLieux.class)
-                .setParameter("bien", bien)
+        return entityManager.createQuery("SELECT DISTINCT e FROM Minute m JOIN EtatDesLieux e on m.idEtatDesLieux.id = e.id JOIN Element el ON m.idElement.id = el.id JOIN Piece p ON el.idPiece.id = p.id JOIN Bien b ON p.idBien.id = b.id WHERE b.id = :id", EtatDesLieux.class)
+                .setParameter("id", bien.getId())
                 .getResultList();
     }
 
