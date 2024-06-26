@@ -7,8 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.my_expert_inventory.HelloApplication;
-import org.example.my_expert_inventory.model.Bien;
+import org.example.my_expert_inventory.MyExpertInventory;
 
 import java.io.IOException;
 
@@ -16,7 +15,7 @@ public class SceneManager {
 
     @FXML
     public static Initializable loadScene(String fxmlFile, Node node) throws IOException {
-        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile));
+        FXMLLoader loader = new FXMLLoader(MyExpertInventory.class.getResource(fxmlFile));
         Parent root = loader.load();
         Stage stage = (Stage) node.getScene().getWindow();
         Scene scene = new Scene(root);
