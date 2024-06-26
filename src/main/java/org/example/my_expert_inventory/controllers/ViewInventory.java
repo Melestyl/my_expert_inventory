@@ -3,9 +3,14 @@ package org.example.my_expert_inventory.controllers;
 import jakarta.persistence.Persistence;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import org.example.my_expert_inventory.dao.ElementDAO;
 import org.example.my_expert_inventory.dao.EtatDesLieuxDAO;
 import org.example.my_expert_inventory.dao.MinuteDAO;
@@ -27,6 +32,7 @@ public class ViewInventory implements Initializable {
 	private EtatDesLieuxService etatDesLieuxService;
 
 	private List<Minute> minutes;
+	private String piece;
 
 	@FXML private Button backToHome;
 	@FXML private GridPane gridPane;
@@ -38,13 +44,38 @@ public class ViewInventory implements Initializable {
 		System.out.println(etatDesLieux);
 
 		etatDesLieuxService = new EtatDesLieuxService(new EtatDesLieuxDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()), new MinuteDAO(Persistence.createEntityManagerFactory("PU_Projet_POO").createEntityManager()));
+		piece = "";
 
 		minutes = etatDesLieuxService.findMinutesByEtatDesLieux(etatDesLieux);
 		for (Minute minute : minutes) {
-			// Add a row to the gridPane
+			if (!minute.getIdElement().getIdPiece().getTypeDePiece().equals(piece)) {
+				piece = minute.getIdElement().getIdPiece().getTypeDePiece();
+
+				// Add empty row
+				gridPane.addRow(row++, new Label(""), new Label(""), new Label(""));
+
+				// Add row with headers
+				Label pieceLabel = new Label(piece);
+				pieceLabel.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+				pieceLabel.setStyle("-fx-font-weight: bold;");
+				Label etatLabel = new Label("Etat");
+				etatLabel.setAlignment(javafx.geometry.Pos.CENTER);
+				etatLabel.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+				etatLabel.setStyle("-fx-font-weight: bold;");
+				Label commentaireLabel = new Label("Commentaire");
+				commentaireLabel.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+				commentaireLabel.setStyle("-fx-font-weight: bold;");
+
+				gridPane.addRow(
+						row++,
+						pieceLabel,
+						etatLabel,
+						commentaireLabel
+				);
+			}
+			// Add a row to the gridPane with the element
 			gridPane.addRow(
 					row++,
-					new Label(minute.getIdElement().getIdPiece().getTypeDePiece()),
 					new Label(minute.getIdElement().getIdTypeElement().getType()),
 					new Label(minute.getEtatElement()),
 					new Label(minute.getCommentaire())
