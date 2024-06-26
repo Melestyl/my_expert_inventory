@@ -53,6 +53,9 @@ public class AddPiece implements Initializable{
         test.addRow(indexCount, new Label("Type de pièce"), new Label("Surface"));
         listPiece = FXCollections.observableArrayList();
         bien=AddBien.monBien;
+
+
+
     }
 
     @FXML

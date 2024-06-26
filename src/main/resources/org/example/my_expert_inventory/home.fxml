@@ -45,7 +45,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="505.0" BorderPane.alignment="CENTER">
          <children>
-            <Button id="addBien" fx:id="addBien" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#setAddBien" style="-fx-background-radius: 25; -fx-background-color: c9d500; -fx-font-weight: bold;" text="Ajouter un bien" textAlignment="CENTER" textFill="#fffffffa">
+            <Button id="addBien" fx:id="addBien" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" minWidth="650.0" mnemonicParsing="false" onAction="#setAddBien" style="-fx-background-radius: 25; -fx-background-color: c9d500; -fx-font-weight: bold;" text="Ajouter un bien" textAlignment="CENTER" textFill="#fffffffa">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
@@ -59,7 +59,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="createInventory" fx:id="createInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#setCreateInventory" style="-fx-background-radius: 25; -fx-background-color: c9d500; -fx-font-weight: bold;" text="Effectuer un état des lieux" textAlignment="CENTER" textFill="#fffffffa">
+            <Button id="createInventory" fx:id="createInventory" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" minWidth="650.0" mnemonicParsing="false" onAction="#setCreateInventory" style="-fx-background-radius: 25; -fx-background-color: c9d500; -fx-font-weight: bold;" text="Effectuer un état des lieux" textAlignment="CENTER" textFill="#fffffffa">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
@@ -73,7 +73,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button id="viewInventory" fx:id="viewInventory" alignment="CENTER" contentDisplay="CENTER" minWidth="650.0" mnemonicParsing="false" onAction="#setViewInventory" style="-fx-background-radius: 25; -fx-background-color: c9d500; -fx-font-weight: bold;" text="Consulter un état des lieux" textAlignment="CENTER" textFill="#fffffffa">
+            <Button id="viewInventory" fx:id="viewInventory" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" minWidth="650.0" mnemonicParsing="false" onAction="#setViewInventory" style="-fx-background-radius: 25; -fx-background-color: c9d500; -fx-font-weight: bold;" text="Consulter un état des lieux" textAlignment="CENTER" textFill="#fffffffa">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
